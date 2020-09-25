@@ -1,0 +1,21 @@
+<div class="container mt-5 mb-5 animated fadeIn">
+  <div class="row">
+    <div class="col-5 image">
+      <img class="image" [src]="track | image" alt="artist">
+    </div>
+    <div class="col-7">
+      <h2 class="text-center text-white">
+        {{track.name}}
+      </h2>
+      <div class="text-center mt-3">
+        <span class="badge badge-pill badge-success m-auto text-center" *ngFor="let artist of track.artists">
+          <a class="artist" [routerLink]="['/artist', artist.id]">
+            {{artist.name}}
+          </a>
+        </span>
+        <iframe class="mt-4" [src]="track.uri | domseguro" frameborder="0" allowtransparency="true"
+          allow="encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
